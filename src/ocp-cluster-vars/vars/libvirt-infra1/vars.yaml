@@ -8,11 +8,11 @@ cluster_kubeconfig: "{{ staging_dir }}/{{ ocp_cluster_name }}-kubeconfig"
 
 # OCP Vars
 ocp_version: "4.16"  # get latest stable release
-ocp_bin_channel: "fast"
+ocp_bin_channel: "stable"
 rhcos_bin_qcow_url: "{{ rhcos_bin_release_url }}/{{ libvirt_rhcos_bin_archive_name }}"
 rhcos_bin_archive_name: "{{ libvirt_rhcos_bin_archive_name }}"
 rhcos_bin_file_name: "{{ libvirt_rhcos_bin_file_name }}"
-ocp_network_type: "OVNKubernetes"  #OVNKubernetes, Calico,Cilium"
+ocp_network_type: "Cilium"  # , Calico,Cilium"
 
 ## Cilium - Only required if network type is Cilium
 cilium_version: 1.15.1
@@ -71,3 +71,6 @@ odf_node_fast_disk_size: "260" # Size in Gi
 
 ### OpenShift Virtualization Vars
 ocp_virt_install: True # Set to True to install OCP Virtualization
+
+## Multi Cluster Engine (MCE) vars
+mce_channel: stable-2.5 
